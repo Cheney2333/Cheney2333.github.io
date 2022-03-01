@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="锦鲤">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这是我的第一篇发布在个人博客网站上的博客，就分享一道之前做过的C语言题目吧(￣︶￣)↗问题描述有N（0&lt;N&lt;&#x3D;100）个学生，每个学生有3门课的成绩，输入每个学生数据（包括学号，姓名，三门课成绩），计算每个学生的平均成绩，并按照平均成绩从高到低的顺序输出学生信息，平均成绩相同时，则按照学号从小到大顺序输出。 输入说明第一行输入学生个数N，然后逐行输入N个学生信息，包括学号，姓">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My First Blog">
+<meta property="og:url" content="http://example.com/2021/12/17/My-First-Blog/index.html">
+<meta property="og:site_name" content="锦鲤">
+<meta property="og:description" content="这是我的第一篇发布在个人博客网站上的博客，就分享一道之前做过的C语言题目吧(￣︶￣)↗问题描述有N（0&lt;N&lt;&#x3D;100）个学生，每个学生有3门课的成绩，输入每个学生数据（包括学号，姓名，三门课成绩），计算每个学生的平均成绩，并按照平均成绩从高到低的顺序输出学生信息，平均成绩相同时，则按照学号从小到大顺序输出。 输入说明第一行输入学生个数N，然后逐行输入N个学生信息，包括学号，姓">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-17T12:29:37.000Z">
+<meta property="article:modified_time" content="2022-02-26T12:51:54.629Z">
+<meta property="article:author" content="锦鲤">
+<meta property="article:tag" content="XDOJ">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>My First Blog - 锦鲤</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>锦鲤</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/article.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="My First Blog">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      锦鲤
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-17 20:29" pubdate>
+        2021年12月17日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">My First Blog</h1>
+            
+            <div class="markdown-body">
+              <h2 id="这是我的第一篇发布在个人博客网站上的博客，就分享一道之前做过的C语言题目吧-￣︶￣-↗"><a href="#这是我的第一篇发布在个人博客网站上的博客，就分享一道之前做过的C语言题目吧-￣︶￣-↗" class="headerlink" title="这是我的第一篇发布在个人博客网站上的博客，就分享一道之前做过的C语言题目吧(￣︶￣)↗"></a>这是我的第一篇发布在个人博客网站上的博客，就分享一道之前做过的C语言题目吧(￣︶￣)↗</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>有N（0&lt;N&lt;&#x3D;100）个学生，每个学生有3门课的成绩，输入每个学生数据（包括学号，姓名，三门课成绩），计算每个学生的平均成绩，并按照平均成绩从高到低的顺序输出学生信息，平均成绩相同时，则按照学号从小到大顺序输出。</p>
+<h3 id="输入说明"><a href="#输入说明" class="headerlink" title="输入说明"></a>输入说明</h3><p>第一行输入学生个数N，然后逐行输入N个学生信息，包括学号，姓名，三门课成绩，学号为正整数，姓名不超过10个字符，各门课程成绩为整数,用空格分隔。</p>
+<h3 id="输出说明"><a href="#输出说明" class="headerlink" title="输出说明"></a>输出说明</h3><p>按照平均成绩由高到低输出学生信息，平均成绩相同时，则按照学号从小到大顺序输出，输出信息包括学号、姓名、平均成绩（保留1位小数），用空格分隔，每个学生信息占一行。</p>
+<h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h3><p>6<br>18001 LiMing 88 45 90<br>18003 WangWei 66 60 68<br>18004 ZhangSan 77 90 83<br>18110 HanMeiMei 88 77 97<br>18122 SuSan 66 23 87<br>18008 YangYang 88 76 95</p>
+<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h3><p>18110 HanMeiMei 87.3<br>18008 YangYang 86.3<br>18004 ZhangSan 83.3<br>18001 LiMing 74.3<br>18003 WangWei 64.7<br>18122 SuSan 58.7</p>
+<p>题目难度不大，重点是对结构类型进行排序，注意细节。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></div></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#include&lt;stdio.h&gt;</span><br><span class="hljs-comment">#include&lt;string.h&gt;</span><br><span class="hljs-comment">#include&lt;stdlib.h&gt;</span><br> <br>typedef struct &#123;<br>	int num;<br>	char name[20];<br>	int a, b, c, total;<br>	double average;<br>&#125; StudentInfo;<br> <br>int main(int argc, char* argv[]) &#123;<br> <br>	StudentInfo* stu, * p;<br>	<br>	int n, i, j;<br>	scanf(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>	stu = (StudentInfo*)malloc(n * sizeof(StudentInfo));			//动态储存管理，节省空间<br>	<span class="hljs-keyword">if</span> (stu == NULL)<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;内存分配失败\n&quot;</span>);							//判断内存分配是否成功<br>	<br>	<span class="hljs-keyword">for</span> (p = stu; p &lt; stu + n; ++p) &#123;											//结构体输入<br>		scanf(<span class="hljs-string">&quot;%d %s %d %d %d&quot;</span>, &amp;p-&gt;num, &amp;p-&gt;name, &amp;p-&gt;a, &amp;p-&gt;b, &amp;p-&gt;c);<br>		p-&gt;total = p-&gt;a + p-&gt;b + p-&gt;c;<br>		p-&gt;average = (p-&gt;a + p-&gt;b + p-&gt;c) / 3.0;<br>	&#125;<br>	<br>	StudentInfo tmp;												//定义中间变量，为冒泡排序做铺垫<br> <br>	<span class="hljs-keyword">for</span>(i = 0; i &lt; n - 1; ++i)										//冒个泡，排个序<br>		<span class="hljs-keyword">for</span> (j = 0; j &lt; n - 1; ++j) &#123;<br>			<span class="hljs-keyword">if</span> (stu[j].total &lt; stu[j + 1].total) &#123;<br>				tmp = stu[j + 1];<br>				stu[j + 1] = stu[j];<br>				stu[j] = tmp;<br>			&#125;<br>			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (stu[j].total == stu[j + 1].total &amp;&amp; stu[j].num &gt; stu[j + 1].num) &#123;<br>				tmp = stu[j + 1];<br>				stu[j + 1] = stu[j];<br>				stu[j] = tmp;<br>			&#125;<br>		&#125;<br>	<span class="hljs-keyword">for</span> (p = stu; p &lt; stu + n; ++p)<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %s %.1f\n&quot;</span>, p-&gt;num, p-&gt;name, p-&gt;average);<br>	<br>	<span class="hljs-built_in">return</span> 0;<br> <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>想要了解更多吗？可以来<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_59446209?spm=1018.2226.3001.5343">我的CSDN</a>看看~</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/XDOJ/">XDOJ</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/26/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">上一届C语言期末</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/20/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href=""><span>Copyright</span></a> <i class="iconfont icon-copyright"></i> <a href="" target="_blank" rel="nofollow noopener"><span>2021-2022 | 西安电子科技大学 陈锦力</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
