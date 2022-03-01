@@ -23,16 +23,16 @@
 <meta property="og:site_name" content="锦鲤">
 <meta property="og:description" content="公式求值 问题描述已知公式Sn&#x3D;a+aa+aaa+…+aa…a(n个a)，其中a是一个数字（1≤a≤9），n表示a的位数（1≤n≤9），给出两个整数a和n，计算Sn，例如：a&#x3D;2, n&#x3D;5时Sn&#x3D;2+22+222+2222+22222。 输入说明在一行上输入两个整数a和n的值，并以空格相隔，1≤a≤9，1≤n≤9。 输出说明输出Sn的计算结果。 输入样例2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/select_sort.gif">
-<meta property="og:image" content="http://example.com/images/bubble_sort.gif">
-<meta property="og:image" content="http://example.com/images/2.png">
-<meta property="og:image" content="http://example.com/images/1.png">
+<meta property="og:image" content="http://example.com/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/select_sort.gif">
+<meta property="og:image" content="http://example.com/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/bubble_sort.gif">
+<meta property="og:image" content="http://example.com/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/2.png">
+<meta property="og:image" content="http://example.com/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/1.png">
 <meta property="article:published_time" content="2022-02-26T14:44:27.000Z">
-<meta property="article:modified_time" content="2022-03-01T01:36:32.674Z">
+<meta property="article:modified_time" content="2022-03-01T01:51:55.989Z">
 <meta property="article:author" content="锦鲤">
 <meta property="article:tag" content="XDOJ">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/select_sort.gif">
+<meta name="twitter:image" content="http://example.com/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/select_sort.gif">
   
   
   <title>上一届C语言期末 - 锦鲤</title>
@@ -287,35 +287,38 @@
 <li>输入说明<br>输入的第一行有三个整数n、k和m（1 ≤ n ≤ 100，0≤ k ≤ 1，1 ≤ m ≤100），n表示正整数个数，k表示排序顺序（0表示从小到大排序，1表示从大到小排序），m表示要输出的整数个数，n、k和m之间用空格分隔。<br>输入的第二行有n个整数s1, s2, …, sn (-1000 ≤ si ≤ 10000, 1 ≤ i ≤ n)。相邻的整数用空格分隔。 </li>
 <li>输出说明<br>在一行上输出按指定顺序排序后的前m个整数，整数之间用空格分隔。如果m&gt;n，只输出n个整数。</li>
 <li>输入样例<ul>
-<li>输入样例1<br>6 1 3<br>10 1 10 20 30 20 </li>
-<li>输入样例2<br>5 0 3<br>10 1 8 12 7</li>
+<li>输入样例1<br>  6 1 3<br>  10 1 10 20 30 20 </li>
+<li>输入样例2<br>  5 0 3<br>  10 1 8 12 7</li>
 </ul>
 </li>
 <li>输出样例<ul>
-<li>输出样例1<br>30 20 20 </li>
-<li>输出样例2<br>1 7 8</li>
+<li>输出样例1<br>  30 20 20 </li>
+<li>输出样例2<br>  1 7 8</li>
 </ul>
 </li>
 </ul>
 <p>代码1</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, k, m, a[<span class="hljs-number">110</span>];<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;k, &amp;m);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;a[i]);<br>    <span class="hljs-comment">//选择排序</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= n; j++)<br>            <span class="hljs-keyword">if</span> (a[i] &gt; a[j])<br>            &#123;<br>                <span class="hljs-type">int</span> t = a[i];<br>                a[i] = a[j];<br>                a[j] = t;<br>            &#125;<br><br>    <span class="hljs-keyword">if</span> (m &gt; n) <span class="hljs-comment">//根据题意，防止下标越界</span><br>        m = n;<br>    <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, a[i]);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt; n - m; i--)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, a[i]);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="/images/select_sort.gif" srcset="/img/loading.gif" lazyload alt="select_sort"><br>代码2</p>
+<p><img src="/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/select_sort.gif" srcset="/img/loading.gif" lazyload alt="选择排序动画示意图"><br>代码2</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, k, m, a[<span class="hljs-number">110</span>];<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;k, &amp;m);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;a[i]);<br>    <span class="hljs-comment">//冒泡排序</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n - i; j++)<br>            <span class="hljs-keyword">if</span> (a[j] &gt; a[j + <span class="hljs-number">1</span>])<br>            &#123;<br>                <span class="hljs-type">int</span> t = a[j];<br>                a[j] = a[j + <span class="hljs-number">1</span>];<br>                a[j + <span class="hljs-number">1</span>] = t;<br>            &#125;<br><br>    <span class="hljs-keyword">if</span> (m &gt; n)<br>        m = n;<br>    <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, a[i]);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt; n - m; i--)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, a[i]);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="/images/bubble_sort.gif" srcset="/img/loading.gif" lazyload alt="bubble_sort"><br>代码3</p>
+<p><img src="/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/bubble_sort.gif" srcset="/img/loading.gif" lazyload alt="冒泡排序动画示意图"><br>代码3</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-comment">//懒人福利</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, k, m, a[<span class="hljs-number">110</span>];<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;k, &amp;m);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;a[i]);<br>    std::<span class="hljs-built_in">sort</span>(a + <span class="hljs-number">1</span>, a + n + <span class="hljs-number">1</span>); <span class="hljs-comment">//调用algorithm库中的sort进行排序</span><br>    <span class="hljs-comment">//如果数组元素是从下标0开始存储的，那就改成 std::sort(a,a+n);</span><br>    <span class="hljs-keyword">if</span> (m &gt; n)<br>        m = n;<br>    <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, a[i]);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt; n - m; i--)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, a[i]);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="上三角矩阵"><a href="#上三角矩阵" class="headerlink" title="上三角矩阵"></a>上三角矩阵</h1><ul>
-<li>问题描述<br>主对角线（图中红色虚线）以下都是零的方阵称为上三角矩阵，如下图（a）是上三角矩阵，（b）不是上三角矩阵。给出一个n行n列的方阵，判断是不是上三角矩阵，如果是则求出上三角元素和，如果不是则统计下三角非零元素个数。<br><img src="/images/2.png" srcset="/img/loading.gif" lazyload alt="pic2"></li>
+<li>问题描述<br>主对角线（图中红色虚线）以下都是零的方阵称为上三角矩阵，如下图（a）是上三角矩阵，（b）不是上三角矩阵。给出一个n行n列的方阵，判断是不是上三角矩阵，如果是则求出上三角元素和，如果不是则统计下三角非零元素个数。</li>
+</ul>
+<p><img src="/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/2.png" srcset="/img/loading.gif" lazyload alt="上三角矩阵示意图"></p>
+<ul>
 <li>输入说明<br>输入第一行为一个整数n（1&lt;n&lt;50）表示方阵行数和列数；接下来是n行，每行n个整数，表示方阵的各个元素。</li>
 <li>输出说明<br>如果方阵是上三角矩阵，则输出上三角的元素和（不含主对角线上的元素），如果方阵不是上三角矩阵，则输出下三角中非零元素个数（不含主对角线上的元素）。</li>
 <li>输入样例<ul>
-<li>输入样例1：<br>3<br>3 5 5<br>0 2 1<br>0 0 5 </li>
-<li>输入样例2<br>3<br>3 2 6<br>1 0 4<br>0 2 1</li>
+<li>输入样例1：<br>  3<br>  3 5 5<br>  0 2 1<br>  0 0 5 </li>
+<li>输入样例2<br>  3<br>  3 2 6<br>  1 0 4<br>  0 2 1</li>
 </ul>
 </li>
 <li>输出样例<ul>
-<li>输出样例1<br>11 </li>
-<li>输出样例2<br>2</li>
+<li>输出样例1<br>  11 </li>
+<li>输出样例2<br>  2</li>
 </ul>
 </li>
 </ul>
@@ -334,24 +337,20 @@
 <li>输入说明<br>输入分为两行，第一行为母串，第二行为子串。母串和子串的长度都不超过100。</li>
 <li>输出说明<br>输出子串在母串中出现的次数，并按出现次序输出每次子串在母串中出现时，子串第一个字符在母串中的位置（位置从0开始计算）。</li>
 <li>输入样例<ul>
-<li><p>输入样例1：<br>12312431235412<br>123 </p>
+<li><p>输入样例1：<br>  12312431235412<br>  123 </p>
 </li>
-<li><p>输入样例2：</p>
-</li>
-</ul>
+<li><p>输入样例2：<br>  12121212<br>  1212</p>
 </li>
 </ul>
-<p>12121212<br>1212 </p>
-<ul>
+</li>
 <li>输出样例<ul>
-<li><p>输出样例1：<br>2 0 7 </p>
+<li><p>输出样例1：<br>  2 0 7 </p>
 </li>
-<li><p>输出样例2：</p>
-</li>
-</ul>
+<li><p>输出样例2：<br>  3 0 2 4</p>
 </li>
 </ul>
-<p>3 0 2 4 </p>
+</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">char</span> s1[<span class="hljs-number">100</span>], s2[<span class="hljs-number">100</span>];<br>    <span class="hljs-type">int</span> ans[<span class="hljs-number">110</span>], tot = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s%s&quot;</span>, s1, s2);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(s1) - <span class="hljs-built_in">strlen</span>(s2); i++)<br>    &#123;<br>        <span class="hljs-type">bool</span> suc = <span class="hljs-number">1</span>;                        <span class="hljs-comment">//假设从s1从i位置开始的长度和s2一样长的子串和s2一样</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-built_in">strlen</span>(s2); j++) <span class="hljs-comment">//检验</span><br>            <span class="hljs-keyword">if</span> (s2[j] != s1[i + j])<br>            &#123;<br>                suc = <span class="hljs-number">0</span>; <span class="hljs-comment">//若发现不一样，则假设不成立</span><br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        <span class="hljs-keyword">if</span> (suc)<br>            ans[++tot] = i;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, tot);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= tot; i++)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, ans[i]);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="单词统计"><a href="#单词统计" class="headerlink" title="单词统计"></a>单词统计</h1><ul>
@@ -369,7 +368,7 @@
 <li>输出样例<br>1 1 25<br>2 2 6<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> a[<span class="hljs-number">110</span>][<span class="hljs-number">110</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> m, n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;m, &amp;n);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;a[i][j]);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++)<br>    &#123;<br>        <span class="hljs-comment">//求这一行最小值</span><br>        <span class="hljs-type">int</span> mn = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>, p;        <span class="hljs-comment">//mn存储该行最小数字的值，p存储这个数字的列坐标。将mn初始化为一个很大的数   (mn=min)</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) <span class="hljs-comment">//打擂台</span><br>            <span class="hljs-keyword">if</span> (a[i][j] &lt; mn)<br>                mn = a[i][j], p = j;<br><br>        <span class="hljs-type">bool</span> suc = <span class="hljs-number">1</span>; <span class="hljs-comment">//假设找到的这个数在这一列中也是最小的   (suc=success)</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; m; j++)<br>            <span class="hljs-keyword">if</span> (j != i &amp;&amp; a[j][p] &lt; a[i][p])<br>                suc = <span class="hljs-number">0</span>; <span class="hljs-comment">//如果发现这一列中有比这个数更小的，那么假设不成立</span><br>        <span class="hljs-keyword">if</span> (suc)  <span class="hljs-comment">//如果假设成立，那么输出坐标和数值</span><br>        &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d %d\n&quot;</span>, i, p, a[i][p]);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="螺旋方阵"><a href="#螺旋方阵" class="headerlink" title="螺旋方阵"></a>螺旋方阵</h1><ul>
-<li>问题描述<br>螺旋方阵是指一个呈螺旋状的矩阵，它的左上角元素为1，由第一行开始按从左到右，从上到下，从从右向左，从下到上的顺序递增填充矩阵，直到矩阵填充完毕，下图所示是一个5*5阶的螺旋方阵。输入螺旋方阵的阶数N，按行输出该螺旋方阵。<br><img src="/images/1.png" srcset="/img/loading.gif" lazyload alt="pic1"></li>
+<li>问题描述<br>螺旋方阵是指一个呈螺旋状的矩阵，它的左上角元素为1，由第一行开始按从左到右，从上到下，从从右向左，从下到上的顺序递增填充矩阵，直到矩阵填充完毕，下图所示是一个5*5阶的螺旋方阵。输入螺旋方阵的阶数N，按行输出该螺旋方阵。<br><img src="/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/1.png" srcset="/img/loading.gif" lazyload alt="螺旋方阵示意图"></li>
 <li>输入说明<br>输入一个正整数N(1&lt;N&lt;&#x3D;100)。</li>
 <li>输出说明<br>逐行输出N阶螺旋方阵的元素，元素之间用空格分隔。</li>
 <li>输入样例<br>6</li>
