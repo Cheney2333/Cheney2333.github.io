@@ -23,6 +23,25 @@
   
   
   <entry>
+    <title>Python中字符串的基本方法</title>
+    <link href="/2022/03/22/Python%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/"/>
+    <url>/2022/03/22/Python%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h3 id="字符串首字母大写"><a href="#字符串首字母大写" class="headerlink" title="字符串首字母大写"></a>字符串首字母大写</h3><p><code>name.title()</code></p><h3 id="字符串全部大写"><a href="#字符串全部大写" class="headerlink" title="字符串全部大写"></a>字符串全部大写</h3><p><code>name.upper()</code></p><h3 id="字符串全部小写"><a href="#字符串全部小写" class="headerlink" title="字符串全部小写"></a>字符串全部小写</h3><p><code>name.lower( )</code></p><h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs python">first_name = <span class="hljs-string">&#x27; Ada &#x27;</span><br><br>last_name = <span class="hljs-string">&#x27; Lovelace &#x27;</span><br><br>full_name = first_name + <span class="hljs-string">&#x27; &#x27;</span> + last_name<br></code></pre></td></tr></table></figure><h3 id="字符串剔除函数"><a href="#字符串剔除函数" class="headerlink" title="字符串剔除函数"></a>字符串剔除函数</h3><h5 id="找出字符串末尾的空白-name-rstrip"><a href="#找出字符串末尾的空白-name-rstrip" class="headerlink" title="找出字符串末尾的空白:name.rstrip()"></a>找出字符串末尾的空白:<code>name.rstrip()</code></h5><h5 id="找出字符串开头的空白-name-lstrip"><a href="#找出字符串开头的空白-name-lstrip" class="headerlink" title="找出字符串开头的空白:name.lstrip()"></a>找出字符串开头的空白:<code>name.lstrip()</code></h5><h5 id="找出字符串开头和末尾的空白-name-strip"><a href="#找出字符串开头和末尾的空白-name-strip" class="headerlink" title="找出字符串开头和末尾的空白:name.strip()"></a>找出字符串开头和末尾的空白:<code>name.strip()</code></h5>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Python学习笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>上一届C语言期末</title>
     <link href="/2022/02/26/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/"/>
     <url>/2022/02/26/%E4%B8%8A%E4%B8%80%E5%B1%8AC%E8%AF%AD%E8%A8%80%E6%9C%9F%E6%9C%AB/</url>
